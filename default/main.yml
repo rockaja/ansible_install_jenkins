@@ -14,7 +14,7 @@
       when: ansible_os_family == "RedHat"
 
     - name: Install Jenkins
-      shell: docker run --name myjenkins -p 8080:8080 -p 50000:50000 -v /home/ubuntu:/var/jenkins_home jenkins
+      shell: docker run --name myjenkins -p 8084:8084 -p 8085:8085 -v /home/ubuntu:/var/jenkins_home jenkins
 
     handlers:
      - name: restart docker
