@@ -13,12 +13,6 @@
       yum: update_cache=yes
       when: ansible_os_family == "RedHat"
 
-    - name: Run Docker Script
-      shell: curl -sSL https://get.docker.com/ | sh
-
-    - name: Give current user sudo to docker
-      shell: usermod -aG docker ${USER}
-
     - name: Install Jenkins
       shell: docker run --name myjenkins -p 8080:8080 -p 50000:50000 -v /home/ubuntu:/var/jenkins_home jenkins
 
