@@ -19,8 +19,8 @@
     - name: Give current user sudo to docker
       shell: usermod -aG docker ${USER}
 
-    - name: Install Shipyard
-      shell: curl -s https://shipyard-project.com/deploy | PORT=9000 bash -s
+    - name: Install Jenkins
+      shell: docker run --name myjenkins -p 8080:8080 -p 50000:50000 -v /home/ubuntu:/var/jenkins_home jenkins
 
     handlers:
      - name: restart docker
